@@ -13,7 +13,7 @@ RM          := rm -rf
 INCLUDE     := -I$(INCLUDE_DIR)
 
 # Sources and objects
-SRCS        := computor.c
+SRCS        := main.c computor.c parser.c reducer.c solver.c utils.c
 OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 DEPS        := $(OBJS:.o=.d)
 
