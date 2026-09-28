@@ -1,19 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/28 17:05:25 by okraus            #+#    #+#             */
+/*   Updated: 2026/09/28 17:13:32 by okraus           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "computor.h"
 #include <stdlib.h> // strtod, strtol
 #include <stdio.h> // dprintf
 
-int parse(t_parser *parser)
+int	parse(t_parser *parser)
 {
 	int		i;
 	int		j;
 	int		first;
-	int		sign = 1;
+	int		sign;
 	double	d;
 	long	power;
 	char	*end;
 
 	i = 0;
 	first = 0;
+	sign = 1;
 	while (parser->equation[i])
 	{
 		while (parser->equation[i] == ' ')
@@ -37,9 +50,6 @@ int parse(t_parser *parser)
 			++i;
 		if (parser->equation[i] == '=')
 			break ;
-		//strtod
-		// code here
-		// d ???
 		d = strtod(&parser->equation[i], &end);
 		if (end == &parser->equation[i])
 		{
@@ -52,12 +62,9 @@ int parse(t_parser *parser)
 			return (1);
 		}
 		i = end - parser->equation;
-
 		d *= sign;
-		//if d is inf or -inf or nan return 1
 		while (parser->equation[i] == ' ')
 			++i;
-		// *
 		if (parser->equation[i] != '*')
 		{
 			dprintf(2, "Error *\n");
@@ -66,7 +73,6 @@ int parse(t_parser *parser)
 		++i;
 		while (parser->equation[i] == ' ')
 			++i;
-		// X^[0-9]
 		if (parser->equation[i] != 'X'
 			|| parser->equation[i + 1] != '^'
 			|| parser->equation[i + 2] < '0'
@@ -75,10 +81,7 @@ int parse(t_parser *parser)
 			dprintf(2, "Error X^ [%s]\n", &parser->equation[i]);
 			return (1);
 		}
-		i +=2;
-		// strtol
-		// code _here
-		// power ???
+		i += 2;
 		power = strtol(&parser->equation[i], &end, 10);
 		if (end == &parser->equation[i])
 		{
@@ -142,9 +145,6 @@ int parse(t_parser *parser)
 			dprintf(2, "Error = [%s]\n", &parser->equation[i]);
 			return (1);
 		}
-		//strtod
-		// code here
-		// d ???
 		d = strtod(&parser->equation[i], &end);
 		if (end == &parser->equation[i])
 		{
@@ -157,12 +157,9 @@ int parse(t_parser *parser)
 			return (1);
 		}
 		i = end - parser->equation;
-
 		d *= sign;
-		//if d is inf or -inf or nan return 1
 		while (parser->equation[i] == ' ')
 			++i;
-		// *
 		if (parser->equation[i] != '*')
 		{
 			dprintf(2, "Error *\n");
@@ -171,7 +168,6 @@ int parse(t_parser *parser)
 		++i;
 		while (parser->equation[i] == ' ')
 			++i;
-		// X^[0-9]
 		if (parser->equation[i] != 'X'
 			|| parser->equation[i + 1] != '^'
 			|| parser->equation[i + 2] < '0'
@@ -180,10 +176,7 @@ int parse(t_parser *parser)
 			dprintf(2, "Error X^ [%s]\n", &parser->equation[i]);
 			return (1);
 		}
-		i +=2;
-		// strtol
-		// code _here
-		// power ???
+		i += 2;
 		power = strtol(&parser->equation[i], &end, 10);
 		if (end == &parser->equation[i])
 		{
@@ -206,7 +199,5 @@ int parse(t_parser *parser)
 			++i;
 		first = 1;
 	}
-
-	// more code here later do not add now
 	return (0);
 }

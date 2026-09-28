@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/28 17:05:33 by okraus            #+#    #+#             */
+/*   Updated: 2026/09/28 17:11:17 by okraus           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "computor.h"
 
-double my_sqrt(double square)
+double	my_sqrt(double square)
 {
 	double	guess;
 	double	next;

@@ -1,31 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/28 17:05:21 by okraus            #+#    #+#             */
+/*   Updated: 2026/09/28 17:09:20 by okraus           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include "computor.h"
-
 
 // The equation in its reduced form.
 // The degree of the equation.
 // It’s solution(s) and the polarity of the discriminant if it makes sens.
 
-char *getline(void)
+char	*getline(void)
 {
-	static char equation[BUFFER_SIZE];
-	int r = 0;
+	static char	equation[BUFFER_SIZE];
+	int			r;
 
 	r = read(0, equation, BUFFER_SIZE);
 	if (r == BUFFER_SIZE || r <= 0)
-		return NULL;
+		return (NULL);
 	if (equation[r - 1] == '\n')
 		--r;
 	equation[r] = 0;
-	return equation;
+	return (equation);
 }
 
-int computor(char const *equation); //computor.c
+int	computor(char const *equation); //computor.c
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
+	char	*equation;
 
-	char *equation = NULL;
+	equation = NULL;
 	if (argc == 1)
 		equation = getline();
 	if (argc == 2)

@@ -1,9 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solver.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/28 17:05:31 by okraus            #+#    #+#             */
+/*   Updated: 2026/09/28 17:12:31 by okraus           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "computor.h"
 #include <stdio.h> //printf
 
-
-double my_sqrt(double square);
+double	my_sqrt(double square);
 
 void	solve_more(t_parser *parser)
 {
@@ -13,10 +23,10 @@ void	solve_more(t_parser *parser)
 
 void	solve_two(t_parser *parser)
 {
-	double a;
-	double b;
-	double c;
-	double d;
+	double	a;
+	double	b;
+	double	c;
+	double	d;
 
 	a = parser->left[2].value;
 	b = parser->left[1].value;
@@ -48,7 +58,7 @@ void	solve_two(t_parser *parser)
 
 void	solve_one(t_parser *parser)
 {
-	double result;
+	double	result;
 
 	result = parser->left[0].value / parser->left[1].value;
 	printf("Polynomial degree: 1\n");
