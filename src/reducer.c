@@ -1,5 +1,5 @@
 #include "computor.h"
-#include <stdio.h>
+#include <stdio.h> //printf
 
 void reduce(t_parser *parser)
 {

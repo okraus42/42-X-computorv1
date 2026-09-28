@@ -11,6 +11,8 @@ int parse(t_parser *parser);
 
 void reduce(t_parser *parser);
 
+void solve(t_parser *parser);
+
 int computor(char const *equation)
 {
 	t_parser parser;
@@ -29,6 +31,6 @@ int computor(char const *equation)
 	// print reduced form
 	reduce(&parser);
 	// solve
-
+	solve(&parser);
 	return (0);
 }
