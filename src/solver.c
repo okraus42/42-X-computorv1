@@ -6,19 +6,23 @@
 /*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:05:31 by okraus            #+#    #+#             */
-/*   Updated: 2026/09/28 17:12:31 by okraus           ###   ########.fr       */
+/*   Updated: 2026/09/29 16:34:28 by okraus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor.h"
 #include <stdio.h> //printf
 
-double	my_sqrt(double square);
+void	print_discriminant_zero(double a, double b);
+void	print_discriminant_positive(double a, double b, double d);
+void	print_discriminant_negative(double a, double b, double d);
+void	print_discriminant_nan(void);
 
 void	solve_more(t_parser *parser)
 {
 	printf("Polynomial degree: %i\n", parser->max_power);
-	printf("The polynomial degree is strictly greater than 2, I can't solve.\n");
+	printf("The polynomial degree is strictly greater than 2");
+	printf(", I can't solve.\n");
 }
 
 void	solve_two(t_parser *parser)
@@ -34,26 +38,13 @@ void	solve_two(t_parser *parser)
 	d = b * b - 4 * a * c;
 	printf("Polynomial degree: 2\n");
 	if (d == 0)
-	{
-		printf("Discriminant is zero, the one solutions is:\n");
-		printf("%g\n", (-b / (2 * a)));
-	}
+		print_discriminant_zero(a, b);
 	else if (d > 0)
-	{
-		printf("Discriminant is strictly positive, the two solutions are:\n");
-		printf("%g\n", ((-b + my_sqrt(d)) / (2 * a)));
-		printf("%g\n", ((-b - my_sqrt(d)) / (2 * a)));
-	}
+		print_discriminant_positive(a, b, d);
 	else if (d < 0)
-	{
-		printf("Discriminant is strictly negative, the two complex solutions are:\n");
-		printf("%g + %gi\n", (-b / (2 * a)), (my_sqrt(d)) / (2 * a));
-		printf("%g - %gi\n", (-b / (2 * a)), (my_sqrt(d)) / (2 * a));
-	}
+		print_discriminant_negative(a, b, d);
 	else
-	{
-		printf("Discriminant is not a number, no solution exists\n");
-	}
+		print_discriminant_nan();
 }
 
 void	solve_one(t_parser *parser)
