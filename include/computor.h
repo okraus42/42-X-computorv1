@@ -6,7 +6,7 @@
 /*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:05:09 by okraus            #+#    #+#             */
-/*   Updated: 2026/09/28 17:06:57 by okraus           ###   ########.fr       */
+/*   Updated: 2026/10/02 17:01:57 by okraus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_term
 
 typedef struct s_parser
 {
-	const char	*equation;
+	const char	*str;
 	int			i;
 	int			fraction;
 	t_term		left[MAX_POWER];

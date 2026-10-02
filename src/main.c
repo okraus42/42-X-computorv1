@@ -6,7 +6,7 @@
 /*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:05:21 by okraus            #+#    #+#             */
-/*   Updated: 2026/09/28 17:09:20 by okraus           ###   ########.fr       */
+/*   Updated: 2026/10/02 17:02:35 by okraus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,28 @@
 
 char	*getline(void)
 {
-	static char	equation[BUFFER_SIZE];
+	static char	str[BUFFER_SIZE];
 	int			r;
 
-	r = read(0, equation, BUFFER_SIZE);
+	r = read(0, str, BUFFER_SIZE);
 	if (r == BUFFER_SIZE || r <= 0)
 		return (NULL);
-	if (equation[r - 1] == '\n')
+	if (str[r - 1] == '\n')
 		--r;
-	equation[r] = 0;
-	return (equation);
+	str[r] = 0;
+	return (str);
 }
 
-int	computor(char const *equation); //computor.c
+int	computor(char const *str); //computor.c
 
 int	main(int argc, char *argv[])
 {
-	char	*equation;
+	char	*str;
 
-	equation = NULL;
+	str = NULL;
 	if (argc == 1)
-		equation = getline();
+		str = getline();
 	if (argc == 2)
-		equation = argv[1];
-	return (computor(equation));
+		str = argv[1];
+	return (computor(str));
 }

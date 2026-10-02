@@ -1,21 +1,28 @@
 # Program name
-NAME        := computor
+NAME        :=	computor
 
 # Directories
-SRC_DIR     := src
-OBJ_DIR     := obj
-INCLUDE_DIR := include
+SRC_DIR     :=	src
+OBJ_DIR     :=	obj
+INCLUDE_DIR :=	include
 
 # Compiler and flags
-CC          := cc
-CFLAGS      := -Wall -Wextra -Werror
-RM          := rm -rf
-INCLUDE     := -I$(INCLUDE_DIR)
+CC          :=	cc
+CFLAGS      :=	-Wall -Wextra -Werror
+RM          :=	rm -rf
+INCLUDE     :=	-I$(INCLUDE_DIR)
 
 # Sources and objects
-SRCS        := main.c computor.c parser.c parser_utils.c reducer.c solver.c utils.c solver_utils.c
-OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
-DEPS        := $(OBJS:.o=.d)
+SRCS        :=	main.c \
+				computor.c \
+				parser_get_sign.c parser_get_number.c parser_get_power.c \
+				parser.c \
+				reducer.c \
+				solver_utils.c \
+				solver.c \
+				utils.c
+OBJS        :=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+DEPS        :=	$(OBJS:.o=.d)
 
 # Build rules
 all: $(NAME)
