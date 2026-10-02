@@ -35,6 +35,9 @@ fclean: clean
 
 re: fclean all
 
+tests: $(NAME)
+	./tests/tests.sh
+
 -include $(DEPS)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re tests

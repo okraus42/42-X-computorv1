@@ -11,6 +11,16 @@
 /* ************************************************************************** */
 
 #include "computor.h"
+#include <stdio.h> //dprintf
+
+int	log_error(const char *s1, const char *s2, int code)
+{
+	if (s1 && !s2)
+		dprintf(2, "Error: %s\n", s1);
+	if (s1 && s2)
+		dprintf(2, s1, s2);
+	return (code);
+}
 
 double	my_sqrt(double square)
 {

@@ -21,15 +21,26 @@
 
 typedef struct s_token
 {
+	int		sign;
 	double	value;
 	int		whole;
 	int		fraction;
+	int		power;
 }	t_token;
+
+typedef struct s_term
+{
+	double	value;
+	int		whole;
+	int		fraction;
+}	t_term;
 
 typedef struct s_parser
 {
 	const char	*equation;
-	t_token		left[MAX_POWER];
+	int			i;
+	int			fraction;
+	t_term		left[MAX_POWER];
 	int			max_power;
 	bool		is_right_side;
 }	t_parser;
