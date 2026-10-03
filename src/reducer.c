@@ -23,6 +23,11 @@ void	reduce(t_parser *parser)
 	printf("Reduced form: ");
 	while (i <= parser->max_power)
 	{
+		if (parser->left[i].value == 0.0)
+		{
+			++i;
+			continue ;
+		}
 		printf("%g * X^%i", parser->left[i].value * sign, i);
 		i++;
 		if (i <= parser->max_power)

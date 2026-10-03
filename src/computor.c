@@ -34,7 +34,6 @@ int	computor(char const *str)
 		return (1);
 	}
 	memset(&parser, 0, sizeof(parser));
-	printf("The str is: %s\n", str);
 	parser.str = str;
 	if (parse(&parser))
 		return (1);

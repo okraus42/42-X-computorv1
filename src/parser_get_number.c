@@ -36,7 +36,6 @@ int	get_number(t_parser *parser, t_token *token)
 {
 	char	*end;
 
-	printf("get_number [%s]\n", &parser->str[parser->i]);
 	while (parser->str[parser->i] == ' ')
 		++(parser->i);
 	if (parser->str[parser->i] == 'X')

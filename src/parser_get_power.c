@@ -40,15 +40,18 @@ static int	handle_start(t_parser *parser, t_token *token)
 int	get_power(t_parser *parser, t_token *token)
 {
 	char	*end;
+	long	l;
 
-	printf("get_power [%s]\n", &parser->str[parser->i]);
 	if (handle_start(parser, token) == 0)
 		return (0);
 	if (parser->str[parser->i] < '0' || parser->str[parser->i] > '9')
 		return (log_error("Error p1 [%s]\n", &parser->str[parser->i], 1));
-	token->power = strtol(&parser->str[parser->i], &end, 10);
+	l = strtol(&parser->str[parser->i], &end, 10);
 	if (end == &parser->str[parser->i])
 		return (log_error("Error p2 [%s]\n", &parser->str[parser->i], 1));
+	if (l < 0 || l > MAX_POWER)
+		return (log_error("Error p3 [%s]\n", &parser->str[parser->i], 1));
 	parser->i = end - parser->str;
+	token->power = l;
 	return (0);
 }

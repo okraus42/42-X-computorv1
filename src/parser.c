@@ -16,6 +16,7 @@
 int	get_sign(t_parser *parser, int *equal, int *first, t_token *token);
 int	get_number(t_parser *parser, t_token *token);
 int	get_power(t_parser *parser, t_token *token);
+int	log_error(const char *s1, const char *s2, int code);
 
 int	parse_term(t_parser *parser, int *equal, int *first)
 {
@@ -51,5 +52,7 @@ int	parse(t_parser *parser)
 	{
 		return_value = parse_term(parser, &equal, &first);
 	}
+	if (equal == 1 && return_value == 0)
+		return (log_error("'=' expected", NULL, 1));
 	return (return_value);
 }

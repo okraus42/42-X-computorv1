@@ -2,4 +2,4 @@
 
 echo "running tests"
 echo "running parser tests"
-./parser_tests.sh
+./tests/parser_tests.sh
